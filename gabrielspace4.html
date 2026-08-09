@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="t1">
+<ahead>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widht=device-width, initial-scale=1.0">
+    <meta  name="description" content="Gabrielspace - aking unang website na ginawa mula sa simula.">
+    <meta name="author" content="Gabrielspace">
+    <meta name="created" content="2026">
+    <title>Gabrielspace</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        color: #202124;
+        line-height: 1.6;
+        animation: pumasok 0.8s ease-out;
+      }
+      @keyframes pumasok {
+        from { opacity: 0; transform: translateY(20px); }
+      } 
+      
+      .logo:lugar { text-align: center; padding: 1.5rem 5% 0.5rem; }
+      .logo {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 120px; height: 120px; border-radius: 50%;
+        background: linear-gradient(135deg, #104eaf, #3b82f6, #60a5fa);
+        color: white; font-size: 2.8rem; font-weight: bold; text-decoration: none;
+        box-shadow: 0 4px 20px rgba(30,40,175,0.35);
+      }
+      .logo:hover { transform: scale(1.8); }
+
+      nav {
+        background: linear-gradient(90deg, #1e4eaf, #3b82f6, #60a5fa, #3b82f6, #104eaf);
+        background-size: 400% 100%;
+        animation: kulaynav 12s ease infinite;
+        padding: 1rem 5%; text-align: center; position: sticky; top: 0; z-index: 100;
+      }
+      @keyframes kulaynav {
+        0% { background-position: 0% 50%; }
+        55% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      nav a { color: white; margin: 0 0.8rem; text-decoration: none; }
+      nav a:hover { color: #fef08a; }
+
+      .hero { text-align: center; padding: 2rem 5%; }
+      .hero h1 {
+        background: linear-gradient(135deg, #1e4eaf, #3b82f6, #0ea5e9);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        font-size: 2.5rem; margin-bottom: 1rem;
+      }
+      .btn {
+        display: inline-block; padding: 1rem 2.5rem; margin-top: 1rem;
+        background: linear-gradient(135deg, #1e4eaf, #3b82f6);
+        color: white; border-radius: 30px; text-decoration: none; 
+        box-shadow: 0 4px 15px; rgba(30,64,175,0.4);
+      }
+      .btn:hover { transform: translateY(-3px); }
+      
+      .search-box { text-align: center; margin: 2rem 5%; }
+      .search-box input {
+        width: 90%; max-width: 500px; padding: 0.9rem 1.2rem;
+        border: 2px solid #e5e7eb; border-radius: 30px; font-size: 1rem; outline: none;
+      }
+      .search-box input:focus { border-color: #3b82f6; box-shadow: 0 0 12px rgba(59,130,264,0.2); }
+      .search-box button {
+        padding: 0.9rem 2rem; margin-top: 1rem;
+        background: linear-gradient(135deg, #1e4eaf, #3b82f6);
+        color: white; border: none; border-radius: 30px; font-size: 1rem; cursor: pointer;
+      }
+
+      .mga-website { padding: 2rem 5%; text-align: center; }
+      .mga-website h2 { color: #1e4eaf; margin-bottom: 1.5rem; }
+      .grid-website { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; }
+      .sikat-na-site {
+        width: 140px; padding: 1.2rem; background: white; border-radius: 14px;
+        box-shadow: 0 3px 12px; rgba(0,0,0,0,08); cursor: pointer; transition: 0.3s;
+      }
+      .sikat-na-site:hover { transform: translateY(-8px) ;}
+      .sikat-na-site .icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+       
+      .bahagi-laro {
+        background: linear-gradient(135deg, #fefce8, #fef3c7);
+        border-radius: 20px; margin: 2rem 3%; padding: 2rem 5%; text-align: center;
+      }
+      .laro-lugar { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
+      .laro-kard {
+        width: 260px; background: white; border-radius: 16px; padding: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      }
+      #larongPindot {
+        width: 130px; height: 130px; border-radius: 50%;
+        background: linear-gradient(135deg, #ef4444, #f97316, #eab308);
+        margin: 1rem auto; cursor: pointer; transition: o.1s;
+      }
+      #laroPindot:active { transform: scale(0.9); }
+        #puntoslaro { font-size: 2rem; font-weight: bold; color: #b43434; margin: 1rem; }
+        .laro-bilangin {
+          display: grid; grid-template-columns: repeat(3, 60px); gap: 8px;
+          justify-content: center; margin: 1rem auto;
+      }
+      .kahon {
+        width: 60px; height: 60px; background: #e5e7eb; border-radius: 8px;
+        cursor: pointer; display: flex; align-items: center; justify-content: center;
+        font-size: 1.8; font-weight: bold; color: #1e40ef;
+      }
+      button { padding: 0.6rem 1.2rem; border: none; border-radius: 20px; cursor: pointer; }
+      #simulaLaro { background: #22c55e; color: white; margin-top: 1rem; }
+      #sabiNanalo { margin-top: 1rem; font-weight: bold; color: #16a34a; }
+      
+      .bahagi-detalye {
+        background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+        border-radius: 20px; margin: 2rem 3%; padding: 2rem 5%;
+      }
+      .bahagi-detalye h2 { color: #15803d; margin-bottom: 1.5rem; text-align: center; }
+      .talahanayan th, .talahanayan td {
+        border: 1px solid #bbf7d0; padding: 0.8rem; text-align: left;
+      }
+      .talahanayan th { background: #22c55e; color: white; } 
+      .talahanayan tr:nth-child(even) { background: #f0fdf4; }
+      .formula { font-family: monospace; background: #dcfce7; padding: 0.3rem 0.6rem; border-radius: 6px; color: #166534; }
+
+      .bahagi { padding: 2rem 5%; margin: 2rem 3%; border-radius: 20px; }
+      .bahagi h2 { color: #1e40ef; margin-bottom: 1rem; }
+      #explore { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+      #coding { background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+      #design { background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+      #future { background: linear-gradient(135deg, #fefe8, #fef3c7); }
+      #serbisyo { background: linear-gradient(135deg, #f0fdf4, #bbf7d0); }
+
+      footer {
+        background: linear-gradient(90deg, #1e4eaf, #3b82f6, #1e40ef);
+        color: white; text-align: center; padding: 2rem; margin-top: 2rem;
+      }
+
+      #laroKungWalangNet {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        z-index: 999; color: white; text-align: center; padding-top: 3rem;
+      }
+      #laroKungWalangNet button { background: #22c55e; color: white; margin-top: 2rem; }
+      </style>
+    </ahead>
+    <body>
+
+      <div class="logo-lugar">
+        <a href="#" class="logo">GS</a>
+      </div>
+
+      <nav>
+        <a href="#">🏚️ Home</a>
+        <a href="#database">Database</a>
+        <a href="detalye">Details</a>
+        <a href="#explore">Tungkol</a>
+        <a href="#coding">Coding</a>
+        <a href="#mga-website">Mga Website</a>
+        <a href="#laro">Game</a>
+        <a href="#serbisyo">Service</a>
+      </nav>
+
+      <section class="hero">
+        <h1>🚀 Welcome to Gabrielspace!</h1>
+        <p>Ang aking unang Website - may sariling Database na! Tinatago ang lahat kahit isara mo ang pahina!</p>
+        <a href="#database" class="btn">Pumunta sa Database ↓</a>
+      </section>
+
+      <div class="bahagi-database" id="database">
+        <h2>🗄️ Database - Tinatago ang Impormasyon</h2>
+        <p style="text-align:center; margin-bottom:1.2rem;">Lahat ng ilalagay mo dito ay mananatili kahit isara at muling buksan ang pahina!</p>
+
+        <input type="text" id="pangalanIlagay" class="kahon-tala" placeholder="Ilagay ang pangalan...">
+        <input type="text" id="impormasyonIlagay" class="kahon-tala" placeholder="Ilagay ang impormasyon o tala...">
+        <br>
+        <button onclick="ilaganSaDatabase()" class="btn-ilagay">✅ Ilagay sa Database</button>
+        <button onclick="burahinLahatDatabase()" class="btn-bura">🗑️ Burahin Lahat</button>
+
+        <table class="talahanayan">
+          <thead>
+            <tr>
+              <th>Bilang</th>
+              <th>Pangalan</th>
+              <th>Impormasyon / Tala</th>
+              <th>Petsa at Oras</th>
+              <th>Aksyon</th>
+            </tr>
+           </thead>
+           <tbody id="talahanayanDatabase"></tbody>
+        </table>
+        <p style="margin-top:1rem; color:#1e40af;">👁️ Kabuuang tala: <span id="bilangTala">0</span></p>
+       </div>
+
+       <div class="bahagi-detalye" id="detalye">
+         <h2>📋 Detalye ng Aking Website</h2>
+         <table class="talahanayan">
+           <tr><th>Uri ng Detalye</th><th>Impormasyon</th></tr>
+           <tr><td>Pangalan ng Website</td><td>Gabrielspace</td></tr>
+           <tr><td>Wika sa Pahina</td><td>HTML5 — Balangkas ng pahina</td></tr>
+           <tr><td>Estilo at Kulay</td><td>CSS3 — Kulay, hugis, galaw, at disenyo</td></tr>
+           <tr><td>Gumagana sa Likod</td><td>JavaScript — Laro, paghahanap, at DATABASE</td></tr>
+           <tr><td>Uri ng Database</td><td>LocalStorage — Tinatago sa loob ng browser</td></tr>
+           <tr><td>Petsa ng Pagbuo</td><td>2026</td></tr>
+          </table>
+        <h3 style="margin-top: 2rem; color: #15803d;">📐 Mga Formula</h3>
+        <table class="talahanayan">
+          <tr><th>Bahagi</th><th>Formula / Kodigo</th></tr>
+          <tr><td>Ilagay sa Database</td><td class="formula">localStorage.setItem("tala", JSON.stringify(listahan))</td></tr>
+          <tr><td>Kunin mula sa Database</td><td class="formula">JSON.parse(localStorage.getItem("gabriel_tala")) || []</td></tr>
+          <tr><td>Panalo sa Laro</td><td class="formula">tatlo magkatulad na marka sa hanay / patayo / pahilis</td></tr>
+          <tr><td>Puntos — tinatago rin!</td><td class="formula">Hindi nawawala kahit isara mo ang pahina</td></tr>
+        </table>
+      </div>
+
+      <div class="mga-website" id="mga-website">
+        <h2>🌐 Popular Websites — JUST CLICK!</h2>
+        <div class="grid-website">
+          <div class="sikat-na-site" onclick="buksanAgad('facebook')">
+            <div class="icon">📘</div><div>Facebook</div>
+          </div>
+          <div class="sikat-na-site" onclick="buksanAgad('instagram')">
+            <div class="icon">📷</div><div>Instagram</div>
+          </div>
+          <div class="sikat-na-site" onclick="buksanAgad('tiktok')">
+            <div class="icon">🎵</div><div>TikTok</div>
+          </div>
+          <div class="sikat-na-site" onclick="buksanAgad('youtube')">
+            <div class="icon">▶️</div><div>YouTube</div>
+          </div>
+          <div class="sikat-na-site" onclick="buksanAgad('google')">
+            <div class="icon">🔍</div><div>Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bahagi-laro" id="laro">
+        <h2>🎮 Games — Points are Saved!</h2>
+        <div class="laro-lugar">
+          <div class="laro-kard">
+            <h3>🏆 Points Counter</h3>
+            <p>Points saved even when closed!</p>
+            <div id="puntosLaro">0</div>
+            <div id="laroPindot" onclick="dagdagPuntosLaro()"></div>
+            <button onclick="puntosUli()">Reset</button>
+          </div>
+          <div class="laro-kard">
+            <h3>⭕ Tic-Tac-Toe</h3>
+            <p>3 in a row = WIN!</p>
+            <div class="laro-bilangan">
+            <div class="kahon" data-pos="0" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="1" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="2" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="3" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="4" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="5" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="6" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="7" onclick="lagayXO(this)"></div>
+            <div class="kahon" data-pos="8" onclick="lagayXO(this)"></div>
+          </div>
+          <button id="simulaLaro" onclick="simulaTicTacToe()">New Game</button>
+          <p id="sabiNanalo"></p>
+        </div>
+    </div>
+  </div>
+
+  <div id="explore" class="bahagi">
+    <h2>🚀 About Gabrielspace</h2>
+    <p>May sarili na itong Database! Lahat ng ilalagay mo — pangalan, tala, at puntos sa laro — ay mananatili kahit isara at muling buksan ang pahina! 💾✨</p>
+  </div>
+
+  <div id="coding" class="bahagi">
+    <h2>💻 Coding</h2>
+    <p>✅ <strong>HTML</strong> — pahina balangkas.</p>
+    <p>✅ <strong>CSS</strong> — kulay at disenyo.</p>
+    <p>✅ <strong>JavaScript + LocalStorage</strong> — Database at laro!</p>
+  </div>
+
+  <div id="design" class="bahagi">
+    <h2>🎨 Design</h2>
+    <p>✅ Gumagana sa telepono at laptop.</p>
+    <p>✅ May kulay at galaw.</p>
+  </div>
+
+  <div id="future" class="bahagi">
+    <h2>🌟 Future</h2>
+    <p>✅ Dagdagan pa ng laman at laro!</p>
+  </div>
+
+  <div id="serbisyo" class="bahagi">
+    <h2>💰 Services</h2>
+    <p>Simple Website: ₱1,500 - ₱3,000</p>
+    <p>Fix Website: ₱500 - ₱1,500</p>
+  </div>
+
+  <div id="laroKungWalangNet">
+    <h2>📡 No Internet!</h2>
+    <p>Play while waiting!</p>
+    <h3>Points: <span id="puntosNet">0</span></h3>
+    <div style="width:130px; height:130px; border-radius:50%; background:linear-gradient(135deg,#ef4444,#f97316); margin:1rem auto; cursor:pointer;" onclick="dagdagPuntosNet()"></div>
+    <button onclick="location.reload()">🔄 Refresh</button>
+  </div>
+
+  <footer>
+    <p>© 2026 Gabrielspace — All Rights Reserved</p>
+  </footer>
+
+<script>
+// 🗄️ DATABASE
+let listahanNgTala = JSON.parse(localStorage.getItem("gabriel_tala")) || [];
+
+function ilaganSaDatabase() {
+  const pangalan = document.getElementById("pangalanIlagay").value.trim();
+  const tala = document.getElementById("impormasyonIlagay").value.trim();
+  if (!pangalan || !tala) { alert("Punan muna ang lahat!"); return; }
+
+  const bagongTala = {
+    bilang: listahanNgTala.length + 1,
+    pangalan: pangalan,
+    tala: tala,
+    petsa: new Date().toLocaleString("tl-PH")
+  };
+
+  listahanNgTala.push(bagongTala);
+  localStorage.setItem("gabriel_tala", JSON.stringify(listahanNgTala));
+  document.getElementById("pangalanIlagay").value = "";
+  document.getElementById("impormasyonIlagay").value = "";
+  ipakitaAngLahatTala();
+  alert("✅ Saved to Database!");
+}
+
+function ipakitaAngLahatTala() {
+  const katawan = document.getElementById("talahanayanDatabase");
+  katawan.innerHTML = "";
+  listahanNgTala.forEach((item, index) => {
+    const hanay = document.createElement("tr");
+    hanay.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${item.pangalan}</td>
+      <td>${item.tala}</td>
+      <td>${item.petsa}</td>
+      <td><button class="btn-bura" onclick="burahinIsa(${index})">Delete</button></td>
+    `;
+    katawan.appendChild(hanay);
+  });
+  document.getElementById("bilangTala").textContent = listahanNgTala.length;
+}
+
+function burahinIsa(index) {
+  listahanNgTala.splice(index, 1);
+  localStorage.setItem("gabriel_tala", JSON.stringify(listahanNgTala));
+  ipakitaAngLahatTala();
+}
+
+function burahinLahatDatabase() {
+  if (confirm("Delete ALL records?")) {
+    listahanNgTala = [];
+    localStorage.removeItem("gabriel_tala");
+    ipakitaAngLahatTala();
+  }
+}
+
+// 🏆 POINTS GAME — SAVED!
+let puntosLaroBilang = parseInt(localStorage.getItem("gabriel_puntos")) || 0;
+document.getElementById("puntosLaro").textContent = puntosLaroBilang;
+
+function dagdagPuntosLaro() {
+  puntosLaroBilang++;
+  localStorage.setItem("gabriel_puntos", puntosLaroBilang);
+  document.getElementById("puntosLaro").textContent = puntosLaroBilang;
+}
+
+function puntosUli() {
+  if (confirm("Reset points to zero?")) {
+    puntosLaroBilang = 0;
+    localStorage.setItem("gabriel_puntos", 0);
+    document.getElementById("puntosLaro").textContent = "0";
+  }
+}
+
+// 🔍 SEARCH & OPEN WEBSITES
+function buksanAngHinanap() {
+  const pangalan = document.getElementById("hanapin").value.trim().toLowerCase();
+  if (!pangalan) { alert("Type something first!"); return; }
+  buksanAgad(pangalan);
+}
+
+function buksanAgad(pangalan) {
+  if (pangalan==='facebook' || pangalan==='fb') {
+    alert("Opening Facebook... 📘");
+    window.open("https://www.facebook.com","_blank");
+  }
+  else if (pangalan==='instagram' || pangalan==='ig') {
+    alert("Opening Instagram... 📷");
+    window.open("https://www.instagram.com","_blank");
+  }
+  else if (pangalan==='tiktok' || pangalan==='tt') {
+    alert("Opening TikTok... 🎵");
+    window.open("https://www.tiktok.com","_blank");
+  }
+  else if (pangalan==='youtube' || pangalan==='yt') {
+    alert("Opening YouTube... ▶️");
+    window.open("https://www.youtube.com","_blank");
+  }
+  else if (pangalan==='google') {
+    alert("Opening Google... 🔍");
+    window.open("https://www.google.com","_blank");
+  }
+  else if (pangalan.includes(".com") || pangalan.includes(".ph") || pangalan.includes(".net")) {
+    window.open("https://" + pangalan,"_blank");
+  }
+  else {
+    window.open("https://www.google.com/search?q=" + encodeURIComponent(pangalan),"_blank");
+  }
+}
+
+// ⭕ TIC-TAC-TOE — FIXED! "O" NOT "0" ✅
+let hanay = ["","","","","","","","",""];
+let naglalaro = "X";
+let taposNa = false;
+const panalo = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+function lagayXO(kahon) {
+  const pwesto = kahon.dataset.pos;
+  if (hanay[pwesto] === "" && !taposNa) {
+    hanay[pwesto] = naglalaro;
+    kahon.textContent = naglalaro;
+    suriinNanalo();
+    naglalaro = naglalaro === "X" ? "O" : "X"; // ✅ FIXED: Letter O, NOT zero!
+  }
+}
+
+function suriinNanalo() {
+  for(let i = 0; i < panalo.length; i++) {
+    const [a,b,c] = panalo[i];
+    if(hanay[a] && hanay[a] === hanay[b] && hanay[a] === hanay[c]) {
+      document.getElementById("sabiNanalo").textContent = "🎉 Winner: " + hanay[a];
+      taposNa = true;
+      return;
+    }
+  }
+  if(!hanay.includes("")) {
+    document.getElementById("sabiNanalo").textContent = "🤝 It's a Tie!";
+    taposNa = true;
+  }
+}
+
+function simulaTicTacToe() {
+  hanay = ["","","","","","","","",""];
+  naglalaro = "X";
+  taposNa = false;
+  document.getElementById("sabiNanalo").textContent = "";
+  document.querySelectorAll(".kahon").forEach(k => k.textContent = "");
+}
+
+// 📡 OFFLINE GAME
+let puntosNet = 0;
+function dagdagPuntosNet() {
+  puntosNet++;
+  document.getElementById("puntosNet").textContent = puntosNet;
+}
+window.addEventListener("offline", function(){
+  document.getElementById("laroKungWalangNet").style.display = "block";
+});
+window.addEventListener("online", function(){
+  document.getElementById("laroKungWalangNet").style.display = "none";
+});
+
+// ✅ LOAD DATA WHEN PAGE OPENS
+ipakitaAngLahatTala();
+</script>
+
+</body>
+</html>
