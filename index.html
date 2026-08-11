@@ -1,109 +1,144 @@
 <!DOCTYPE html>
-<html lang="tl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GabSpace</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GabSpace — Search, Games, and Knowledge</title>
+    <meta name="description" content="GabSpace — your free space on the internet. Search, learn, and play all in one place.">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js-cookie.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <button class="btn-settings" onclick="openModal()">⚙️</button>
+    <header class="header">
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <div class="language-box">
+            <select id="langSelect" onchange="changeLanguage(this.value)">
+                <option value="en" selected>🇬🇧 English</option>
+                <option value="tl">🇵🇭 Tagalog</option>
+                <option value="es">🇪🇸 Spanish</option>
+                <option value="fr">🇫🇷 French</option>
+                <option value="ja">🇯🇵 Japanese</option>
+                <option value="ko">🇰🇷 Korean</option>
+                <option value="zh">🇨🇳 Chinese</option>
+            </select>
+        </div>
+        <nav class="nav-bar" id="navMenu">
+            <a href="#" onclick="showSection('search')">Search</a>
+            <a href="#" onclick="showSection('games')">Games</a>
+            <a href="#" onclick="showSection('contact')">Contact</a>
+            <a href="#" onclick="showSection('about')">About</a>
+        </nav>
+        <h1 class="logo-text">GabSpace</h1>
+    </header>
 
-  <div class="modal" id="modal" onclick="closeOnBackdrop(event)">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Tungkol sa GabSpace</h2>
-      <p>GabSpace ay gawa para makapaghanap, makapaglaro, at matuto nang madali.</p>
-      <h3>Ano ang laman nito?</h3>
-      <ul>
-        <li>🔍 Paghahanap — buksan ang anumang website</li>
-        <li>🎮 5 laro — Tic-Tac-Toe, bilang, at iba pa</li>
-        <li>👁️ Bilang ng bumibisita — makikita kung ilan na ang nakapunta</li>
-      </ul>
-      <h3>Paano gamitin?</h3>
-      <p>Ilagay ang hinahanap sa itaas. Pumili ng laro sa ibaba. Pindutin ang ⚙️ para makita ang detalye.</p>
-      <button class="btn btn-blue" onclick="closeModal()">Isara</button>
-    </div>
-  </div>
+    <!-- SEARCH BAR — Google Style -->
+    <section id="search" class="search-section">
+        <div class="google-search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search GabSpace or type URL..." autocomplete="off">
+            <span class="search-icons-right">
+                <span>🎤</span>
+                <span>📷</span>
+            </span>
+        </div>
+        <div class="search-buttons-center">
+            <button class="search-btn" onclick="doSearch()">GabSpace Search</button>
+            <button class="search-btn" onclick="openSite()">Go to Website</button>
+        </div>
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <div class="link-grid">
+                <button onclick="goTo('https://google.com')">🔍 Google</button>
+                <button onclick="goTo('https://youtube.com')">▶️ YouTube</button>
+                <button onclick="goTo('https://instagram.com')">📷 Instagram</button>
+                <button onclick="goTo('https://facebook.com')">📘 Facebook</button>
+                <button onclick="goTo('https://github.com')">💻 GitHub</button>
+                <button onclick="goTo('https://wikipedia.org')">📖 Wikipedia</button>
+            </div>
+        </div>
+    </section>
 
-  <div class="center">
-    <div class="logo-wrap"><span class="logo-s">S</span></div>
-    <h1>GabSpace</h1>
+    <p class="visitor">👁️ Total Visitors: <span id="visitorCount">0</span> | 📅 Today: <span id="todayCount">0</span></p>
 
-    <input type="text" id="searchInput" class="search-box" placeholder="Ilagay ang hinahanap o website...">
-    <br>
-    <button class="btn btn-blue" onclick="doSearch()">Hanapin</button>
-    <button class="btn btn-blue" onclick="openSite()">Buksan</button>
-    <div class="quick-links">
-      <button class="btn btn-quick" onclick="goTo('youtube')">YouTube</button>
-      <button class="btn btn-quick" onclick="goTo('facebook')">Facebook</button>
-      <button class="btn btn-quick" onclick="goTo('wikipedia')">Wikipedia</button>
-    </div>
-    <p class="visitor">Bumibisita: <span id="visitorCount">1</span></p>
-  </div>
+    <!-- GAMES SECTION -->
+    <section id="games" class="content-section">
+        <h2>🎮 Brain & Quiz Games</h2>
+        <div class="game-select">
+            <button onclick="pickGame(1)" id="g1" class="active">1. Tic-Tac-Toe</button>
+            <button onclick="pickGame(2)" id="g2">2. Number Sequence</button>
+            <button onclick="pickGame(3)" id="g3">3. Which Number is Larger?</button>
+            <button onclick="pickGame(4)" id="g4">4. First to Reach Goal</button>
+            <button onclick="pickGame(5)" id="g5">5. True or False Quiz</button>
+            <br>
+            <button onclick="setGoal(10)">Goal: 10</button>
+            <button onclick="setGoal(20)">Goal: 20</button>
+            <button onclick="setGoal(30)">Goal: 30</button>
+            <button onclick="setGoal(50)">Goal: 50</button>
+        </div>
 
-  <div class="game-section">
-    <h2>Mga Laro</h2>
-    <div class="game-select">
-      <button onclick="pickGame(1)" id="g1" class="active">1. Tic-Tac-Toe</button>
-      <button onclick="pickGame(2)" id="g2">2. Sunod na Bilang</button>
-      <button onclick="pickGame(3)" id="g3">3. Mas Malaki?</button>
-      <button onclick="pickGame(4)" id="g4">4. Unang Umabot ng 10</button>
-      <button onclick="pickGame(5)" id="g5">5. Tama o Mali</button>
-    </div>
+        <div id="game1" class="game-box">
+            <h3>Tic-Tac-Toe</h3>
+            <p>Score X: <span id="xScore">0</span> | Score O: <span id="oScore">0</span> | Winning Goal: <span id="goal">10</span></p>
+            <div class="board" id="board"></div>
+            <button onclick="resetBoard()">Play Again</button>
+        </div>
+        <div id="game2" class="game-box">
+            <h3>Number Sequence Game</h3>
+            <p>✅ Correct: <span id="c2">0</span> | ❌ Wrong: <span id="w2">0</span></p>
+            <p id="target2">Press Start to begin</p>
+            <button onclick="startGame2()">Start Game</button>
+            <button onclick="resetGame2()">Reset Score</button>
+        </div>
+        <div id="game3" class="game-box">
+            <h3>Which Number is Larger?</h3>
+            <p id="q3">Press Start to begin</p>
+            <p>✅ Correct: <span id="c3">0</span> | ❌ Wrong: <span id="w3">0</span></p>
+            <button onclick="chooseA()">A is Larger</button>
+            <button onclick="chooseB()">B is Larger</button>
+            <br><button onclick="resetGame3()">Reset Score</button>
+        </div>
+        <div id="game4" class="game-box">
+            <h3>First to Reach Winning Score</h3>
+            <p>Your Score: <span id="p4a">0</span> | Opponent Score: <span id="p4b">0</span></p>
+            <button onclick="addPoint(1)">You +1 Point</button>
+            <button onclick="addPoint(2)">Opponent +1 Point</button>
+            <p id="res4"></p>
+            <button onclick="resetGame4()">Restart Game</button>
+        </div>
+        <div id="game5" class="game-box">
+            <h3>🎯 True or False — 150 Questions!</h3>
+            <div class="level-buttons">
+                <button onclick="setLevel('easy')">🟢 Easy (50)</button>
+                <button onclick="setLevel('medium')">🟡 Medium (50)</button>
+                <button onclick="setLevel('hard')">🔴 Hard (50)</button>
+            </div>
+            <p>Level: <strong id="levelTitle">Not Selected</strong></p>
+            <p>Progress: <span id="qCount5">0 / 150</span></p>
+            <div class="progress-bar"><div id="progress5"></div></div>
+            <p id="q5">Choose a level to start!</p>
+            <p>✅ Correct: <span id="c5">0</span> | ❌ Wrong: <span id="w5">0</span></p>
+            <button onclick="ans5(true)" class="btn-yes">✅ TRUE</button>
+            <button onclick="ans5(false)" class="btn-no">❌ FALSE</button>
+            <br><button onclick="resetGame5()">Reset Quiz</button>
+        </div>
+    </section>
 
-    <div class="game-container show" id="game1">
-      <div class="series-buttons">
-        <button onclick="setSeries(10)">Hanggang 10 Panalo</button>
-        <button onclick="setSeries(20)">Hanggang 20 Panalo</button>
-        <button onclick="setSeries(30)">Hanggang 30 Panalo</button>
-      </div>
-      <div class="score-board">
-        X: <span id="xScore">0</span> | O: <span id="oScore">0</span> | Kailangan: <span id="needWin">0</span>
-      </div>
-      <div class="grid" id="board"></div>
-      <p class="msg" id="msg1"></p>
-      <button class="btn btn-green" onclick="resetAll()">Simulang Muli</button>
-    </div>
+    <section id="contact" class="content-section">
+        <h2>📞 Contact</h2>
+        <p>Send a message or make a call on Instagram.</p>
+        <a href="https://instagram.com/direct/messages" target="_blank" class="btn-ig">💬 Send Message</a>
+    </section>
 
-    <div class="game-container" id="game2">
-      <p class="q-text" id="q2">Pindutin Simula</p>
-      <div id="opt2"></div>
-      <p class="msg" id="msg2"></p>
-      <p>Tama: <span id="g2ok">0</span> | Mali: <span id="g2no">0</span></p>
-      <button class="btn btn-green" onclick="startGame2()">Simula</button>
-      <button class="btn btn-red" onclick="resetGame2()">Muli</button>
-    </div>
+    <section id="about" class="content-section">
+        <h2>ℹ️ About GabSpace</h2>
+        <p>GabSpace is a free internet space. Search, play games, and explore — all in one place.</p>
+    </section>
 
-    <div class="game-container" id="game3">
-      <p class="q-text" id="q3">Pindutin Simula</p>
-      <div id="opt3"></div>
-      <p class="msg" id="msg3"></p>
-      <p>Tama: <span id="g3ok">0</span> | Mali: <span id="g3no">0</span></p>
-      <button class="btn btn-green" onclick="startGame3()">Simula</button>
-      <button class="btn btn-red" onclick="resetGame3()">Muli</button>
-    </div>
+    <footer>
+        <p>© 2026 GabSpace — All Rights Reserved.</p>
+    </footer>
 
-    <div class="game-container" id="game4">
-      <p class="q-text">Ikaw: <span id="p1pos">0</span> | Kalaban: <span id="p2pos">0</span></p>
-      <p>Unang umabot ng 10 ang mananalo</p>
-      <p class="msg" id="msg4"></p>
-      <button class="btn btn-green" onclick="rollP1()">Ako</button>
-      <button class="btn btn-yellow" onclick="rollP2()">Kalaban</button>
-      <button class="btn btn-red" onclick="resetGame4()">Muli</button>
-    </div>
-
-    <div class="game-container" id="game5">
-      <p class="q-text" id="q5">Pindutin Simula</p>
-      <p class="msg" id="msg5"></p>
-      <p>Tama: <span id="g5ok">0</span> | Mali: <span id="g5no">0</span></p>
-      <button class="btn btn-green" onclick="startGame5()">Simula</button>
-      <button class="btn btn-green" onclick="ans5(true)">✅ Tama</button>
-      <button class="btn btn-red" onclick="ans5(false)">❌ Mali</button>
-    </div>
-  </div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

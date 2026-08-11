@@ -1,260 +1,44 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+body {background-color: #202124; color: #e8eaed; min-height: 100vh;}
 
-body {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  color: white;
-  min-height: 100vh;
-  padding-bottom: 40px;
-}
+.header {text-align: center; padding-top: 60px; position: relative;}
+.menu-btn {position: absolute; top: 15px; left: 15px; background: transparent; color: #fff; border: none; font-size: 20px; cursor: pointer;}
+.language-box {position: absolute; top: 15px; right: 15px;}
+.language-box select {background: #303134; color: #fff; border: 1px solid #5f6368; border-radius: 4px; padding: 6px;}
+.nav-bar {margin: 15px 0 30px;}
+.nav-bar a {color: #e8eaed; margin: 0 12px; text-decoration: none; font-size: 14px;}
+.nav-bar a:hover {text-decoration: underline;}
+.logo-text {font-size: 48px; margin-bottom: 30px;}
 
-.btn-settings {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background: #2563eb;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
+/* GOOGLE-STYLE SEARCH BAR */
+.search-section {max-width: 600px; margin: 0 auto; padding: 0 20px;}
+.google-search-bar {display: flex; align-items: center; background: #303134; border-radius: 24px; padding: 12px 20px; border: 1px solid #5f6368;}
+.google-search-bar:hover {border-color: transparent; box-shadow: 0 1px 6px rgba(0,0,0,0.2);}
+.search-icon {color: #9aa0a6; margin-right: 12px;}
+.google-search-bar input {flex: 1; background: transparent; border: none; outline: none; color: #fff; font-size: 16px;}
+.search-icons-right {display: flex; gap: 16px;}
+.search-buttons-center {display: flex; justify-content: center; gap: 12px; margin-top: 24px;}
+.search-btn {background: #303134; color: #fff; border: none; border-radius: 4px; padding: 10px 16px; cursor: pointer;}
+.search-btn:hover {background: #38393c;}
+.quick-links {margin-top: 40px;}
+.quick-links h3 {color: #9aa0a6; text-align: center; margin-bottom: 16px; font-size: 14px;}
+.link-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;}
+.link-grid button {background: #303134; color: #fff; border: none; border-radius: 8px; padding: 16px; cursor: pointer;}
+.link-grid button:hover {background: #38393c;}
 
-.btn-settings:hover {
-  background: #1d4ed8;
-}
+.visitor {text-align: center; color: #9aa0a6; margin: 30px 0; font-size: 14px;}
+.content-section {max-width: 600px; margin: 40px auto; padding: 0 20px; display: none;}
+h2 {margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #3c4043;}
 
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal-content {
-  background: white;
-  color: #1e293b;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 480px;
-  width: 100%;
-}
-
-.close {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
-  color: #64748b;
-}
-
-.modal h2 {
-  margin-bottom: 15px;
-  color: #1e40af;
-}
-
-.modal h3 {
-  margin: 15px 0 8px;
-  color: #3b82f6;
-}
-
-.modal p, .modal li {
-  line-height: 1.6;
-}
-
-.center {
-  text-align: center;
-  padding-top: 50px;
-}
-
-.logo-wrap {
-  width: 120px;
-  height: 120px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #2563eb, #60a5fa);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
-  font-size: 60px;
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 36px;
-  margin-bottom: 25px;
-  color: #93c5fd;
-}
-
-.search-box {
-  width: 90%;
-  max-width: 480px;
-  padding: 14px 18px;
-  border-radius: 30px;
-  border: 2px solid #3b82f6;
-  background: rgba(37, 99, 235, 0.15);
-  color: white;
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.btn-blue {
-  background: #2563eb;
-  color: white;
-}
-
-.btn-blue:hover {
-  background: #1d4ed8;
-}
-
-.btn-green {
-  background: #16a34a;
-  color: white;
-}
-
-.btn-green:hover {
-  background: #15803d;
-}
-
-.btn-red {
-  background: #dc2626;
-  color: white;
-}
-
-.btn-red:hover {
-  background: #b91c1c;
-}
-
-.btn-yellow {
-  background: #ca8a04;
-  color: white;
-}
-
-.btn-yellow:hover {
-  background: #a16207;
-}
-
-.quick-links {
-  margin: 15px 0;
-}
-
-.btn-quick {
-  background: rgba(59, 130, 246, 0.2);
-  color: #bfdbfe;
-}
-
-.visitor {
-  margin-top: 10px;
-  color: #93c5fd;
-}
-
-.game-section {
-  max-width: 520px;
-  margin: 30px auto;
-  padding: 20px;
-  background: rgba(37, 99, 235, 0.1);
-  border-radius: 16px;
-}
-
-.game-section h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #93c5fd;
-}
-
-.game-select {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.game-select button {
-  background: rgba(59, 130, 246, 0.2);
-  color: #dbeafe;
-  margin: 3px;
-}
-
-.game-select button.active {
-  background: #2563eb;
-  color: white;
-}
-
-.game-container {
-  display: none;
-  text-align: center;
-}
-
-.game-container.show {
-  display: block;
-}
-
-.series-buttons button {
-  background: #3b82f6;
-  color: white;
-  margin: 4px;
-}
-
-.score-board {
-  margin: 12px 0;
-  font-size: 16px;
-  color: #bfdbfe;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 85px);
-  gap: 8px;
-  justify-content: center;
-  margin: 15px 0;
-}
-
-.grid div {
-  width: 85px;
-  height: 85px;
-  background: rgba(59, 130, 246, 0.2);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.grid div:hover {
-  background: rgba(59, 130, 246, 0.35);
-}
-
-.q-text {
-  font-size: 22px;
-  padding: 20px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 10px;
-  margin: 15px 0;
-}
-
-.msg {
-  margin: 10px 0;
-  font-weight: bold;
-  color: #86efac;
-}
+.game-select {display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;}
+.game-select button {background: #303134; color: #fff; border: none; border-radius: 4px; padding: 8px 12px; cursor: pointer;}
+.game-select button.active {background: #4285f4;}
+.game-box {display: none; padding: 20px; background: #303134; border-radius: 8px; margin-top: 15px;}
+.board {display: grid; grid-template-columns: repeat(3, 80px); gap: 8px; justify-content: center; margin: 20px auto;}
+.board button {width: 80px; height: 80px; font-size: 32px; background: #3c4043; color: #fff; border: none; border-radius: 4px; cursor: pointer;}
+.progress-bar {width: 100%; height: 10px; background: #3c4043; border-radius: 5px; overflow: hidden; margin: 10px 0;}
+.progress-bar div {height: 100%; background: #4285f4; width: 0%; transition: 0.3s;}
+.btn-yes {background: #137333; color: #fff; border: none; padding: 8px 16px; margin: 4px; border-radius: 4px; cursor: pointer;}
+.btn-no {background: #d93025; color: #fff; border: none; padding: 8px 16px; margin: 4px; border-radius: 4px; cursor: pointer;}
+.btn-ig {background: linear-gradient(45deg, #e6683c, #dd2a7b); color: #fff; padding: 10px 16px; border-radius: 4px; text-decoration: none; display: inline-block; margin-top: 10px;}
+footer {text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid #3c4043; color: #9aa0a6; font-size: 13px;}
