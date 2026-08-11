@@ -1,0 +1,44 @@
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+body {background-color: #202124; color: #e8eaed; min-height: 100vh;}
+
+.header {text-align: center; padding-top: 60px; position: relative;}
+.menu-btn {position: absolute; top: 15px; left: 15px; background: transparent; color: #fff; border: none; font-size: 20px; cursor: pointer;}
+.language-box {position: absolute; top: 15px; right: 15px;}
+.language-box select {background: #303134; color: #fff; border: 1px solid #5f6368; border-radius: 4px; padding: 6px;}
+.nav-bar {margin: 15px 0 30px;}
+.nav-bar a {color: #e8eaed; margin: 0 12px; text-decoration: none; font-size: 14px;}
+.nav-bar a:hover {text-decoration: underline;}
+.logo-text {font-size: 48px; margin-bottom: 30px;}
+
+/* GOOGLE-STYLE SEARCH BAR */
+.search-section {max-width: 600px; margin: 0 auto; padding: 0 20px;}
+.google-search-bar {display: flex; align-items: center; background: #303134; border-radius: 24px; padding: 12px 20px; border: 1px solid #5f6368;}
+.google-search-bar:hover {border-color: transparent; box-shadow: 0 1px 6px rgba(0,0,0,0.2);}
+.search-icon {color: #9aa0a6; margin-right: 12px;}
+.google-search-bar input {flex: 1; background: transparent; border: none; outline: none; color: #fff; font-size: 16px;}
+.search-icons-right {display: flex; gap: 16px;}
+.search-buttons-center {display: flex; justify-content: center; gap: 12px; margin-top: 24px;}
+.search-btn {background: #303134; color: #fff; border: none; border-radius: 4px; padding: 10px 16px; cursor: pointer;}
+.search-btn:hover {background: #38393c;}
+.quick-links {margin-top: 40px;}
+.quick-links h3 {color: #9aa0a6; text-align: center; margin-bottom: 16px; font-size: 14px;}
+.link-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;}
+.link-grid button {background: #303134; color: #fff; border: none; border-radius: 8px; padding: 16px; cursor: pointer;}
+.link-grid button:hover {background: #38393c;}
+
+.visitor {text-align: center; color: #9aa0a6; margin: 30px 0; font-size: 14px;}
+.content-section {max-width: 600px; margin: 40px auto; padding: 0 20px; display: none;}
+h2 {margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #3c4043;}
+
+.game-select {display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;}
+.game-select button {background: #303134; color: #fff; border: none; border-radius: 4px; padding: 8px 12px; cursor: pointer;}
+.game-select button.active {background: #4285f4;}
+.game-box {display: none; padding: 20px; background: #303134; border-radius: 8px; margin-top: 15px;}
+.board {display: grid; grid-template-columns: repeat(3, 80px); gap: 8px; justify-content: center; margin: 20px auto;}
+.board button {width: 80px; height: 80px; font-size: 32px; background: #3c4043; color: #fff; border: none; border-radius: 4px; cursor: pointer;}
+.progress-bar {width: 100%; height: 10px; background: #3c4043; border-radius: 5px; overflow: hidden; margin: 10px 0;}
+.progress-bar div {height: 100%; background: #4285f4; width: 0%; transition: 0.3s;}
+.btn-yes {background: #137333; color: #fff; border: none; padding: 8px 16px; margin: 4px; border-radius: 4px; cursor: pointer;}
+.btn-no {background: #d93025; color: #fff; border: none; padding: 8px 16px; margin: 4px; border-radius: 4px; cursor: pointer;}
+.btn-ig {background: linear-gradient(45deg, #e6683c, #dd2a7b); color: #fff; padding: 10px 16px; border-radius: 4px; text-decoration: none; display: inline-block; margin-top: 10px;}
+footer {text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid #3c4043; color: #9aa0a6; font-size: 13px;}
